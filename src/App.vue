@@ -1,6 +1,5 @@
 <template>
-<<<<<<< HEAD
-  <v-app>
+  <v-app >
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
         <span class="font-weight-light">CRYPTAPI</span>
@@ -17,7 +16,7 @@
       </v-btn>
     </v-app-bar>
 
-    <v-content>
+    <v-content >
       <router-view></router-view>
     </v-content>
   </v-app>
@@ -34,27 +33,9 @@ export default {
   }),
 };
 </script>
-=======
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
-</template>
 
-<script>
-export default {
-  name: 'App'
-}
-</script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style >
+* {
+  background-color:"blue"
 }
 </style>
->>>>>>> f4e68c3d91059376bde21f9754be818dc388e9a5

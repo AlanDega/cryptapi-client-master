@@ -1,0 +1,278 @@
+
+<template>
+    <v-tabs centered >
+      <v-tab>
+        BTC
+      </v-tab>
+      <v-tab>
+        ETH
+      </v-tab>
+      <v-tab>
+        XRP
+      </v-tab>
+      
+        <v-tab-item>
+          <v-container>
+            <v-row>
+              <v-col  cols="6">
+                <v-card >
+                  <v-toolbar    dark color="yellow darken-2">
+                  <h1>Menor</h1>
+                   </v-toolbar>
+                   <v-img 
+                   src="@/assets/btc.png"
+                   width="60"
+                   height="60"
+                   >
+                   </v-img>
+                  <PrecioMenorBTC/>
+                  <v-btn dark>Compra</v-btn>
+
+                </v-card>
+              </v-col>
+              <v-col  cols="6">
+<v-card >
+  <v-toolbar dark color="yellow darken-2  ">
+    <h1>Mayor</h1>
+  </v-toolbar>
+  <v-img 
+                   src="@/assets/btc.png"
+                   width="60"
+                   height="60"
+                   >
+                   </v-img>
+            
+                        <PrecioMayorBTC/>
+<v-btn dark>venta</v-btn>
+        </v-card>
+  
+              </v-col>
+          </v-row>
+<Ganancia />
+          <v-card>
+
+         
+            <v-container justify="center">
+<v-row >
+              <v-col cols="8">
+                
+
+              <v-progress-circular
+              value="20"
+              color="yellow darken-2"
+              size="300"
+              width="12"
+              >
+              <v-row>
+                <v-col cols="12">
+                  <h1 >$3210</h1>
+                </v-col>
+                  <v-col cols="12">
+                    <p class="saldoNum">Total MXN</p>
+                </v-col>
+              </v-row>
+            
+             
+              </v-progress-circular>
+
+               
+
+              </v-col>
+              <v-col cols="4">
+                <v-list-item>
+                  <v-list-content>
+                    <v-list-title>
+                      MXN {{}}
+                    </v-list-title>
+                  </v-list-content>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-content>
+                    <v-list-title>
+                      BTC {{}}
+                    </v-list-title>
+                  </v-list-content>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-content>
+                    <v-list-title>
+                      ETH {{ }}
+                    </v-list-title>
+                  </v-list-content>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-content>
+                    <v-list-title>
+                      XRP {{ }}
+                    </v-list-title>
+                  </v-list-content>
+                </v-list-item>
+              </v-col>
+              
+            </v-row>
+            </v-container>
+            
+           
+        </v-card>
+          <!-- // card saldo -->
+      </v-container>
+      </v-tab-item>
+
+
+
+      <!-- // eth----------------------------------------------------------------------------- -->
+      <v-tab-item>
+          <v-container>
+            <v-row>
+              <v-col  cols="6">
+                <v-card >
+                  <v-toolbar    dark color="deep-purple">
+                  <h1>Compra</h1>
+                   </v-toolbar>
+                   <v-img 
+                   src="@/assets/ethLogo.png"
+                   width="60"
+                   height="60"
+                   >
+                   </v-img>
+                  <PrecioMenorETH/>
+                </v-card>
+              </v-col>
+              <v-col  cols="6">
+<v-card >
+  <v-toolbar dark color="deep-purple  ">
+    <h1>Venta</h1>
+  </v-toolbar>
+  <v-img 
+                   src="@/assets/ethLogo.png"
+                   width="60"
+                   height="60"
+                   >
+                   </v-img>
+            
+                        <PrecioMayorETH/>
+
+        </v-card>
+              </v-col>
+          </v-row>
+          <v-card>
+            <Ganancia />
+          </v-card>
+      </v-container>
+      </v-tab-item>
+
+
+
+      <!-- 3 coin--------------------------------------------------------------------------- -->
+     <v-tab-item>
+          <v-container>
+            <v-row>
+              <v-col  cols="6">
+                <v-card >
+                  <v-toolbar    dark color="deep-purple">
+                  <h1>Compra</h1>
+                   </v-toolbar>
+                   <v-img 
+                   src="@/assets/btc.png"
+                   width="60"
+                   height="60"
+                   >
+                   </v-img>
+                  <PrecioMenor/>
+                </v-card>
+              </v-col>
+              <v-col  cols="6">
+<v-card >
+  <v-toolbar dark color="yellow darken-2  ">
+    <h1>Venta</h1>
+  </v-toolbar>
+  <v-img 
+                   src="@/assets/btc.png"
+                   width="60"
+                   height="60"
+                   >
+                   </v-img>
+            
+                        <PrecioMayor/>
+
+        </v-card>
+              </v-col>
+          </v-row>
+          <v-card>
+            <!-- <Ganancia /> -->
+          </v-card>
+      </v-container>
+      </v-tab-item>
+    
+     
+    </v-tabs>
+</template>
+
+    <script>
+    import { mapState } from 'vuex'
+
+
+import PrecioMayorBTC from '@/components/PreciosBTC/PrecioMayorBTC.vue'
+import PrecioMenorBTC from '@/components/PreciosBTC/PrecioMenorBTC.vue'
+import PrecioMayorETH from '@/components/PreciosETH/PrecioMayorETH.vue'
+import PrecioMenorETH from '@/components/PreciosETH/PrecioMenorETH.vue'
+
+
+import Ganancia from '@/components/PreciosBTC/GananciaBTC.vue'
+import Axios from 'axios'
+
+
+  export default {
+    components:{
+        PrecioMenorBTC,
+        PrecioMayorBTC,
+        PrecioMayorETH,
+        PrecioMenorETH,
+
+
+        Ganancia,
+
+    },
+    data () {
+      return {
+        MXN:"",
+        BTC:"",
+        ETH:"",
+        MXNpercentage:"",
+        BTCpercentage:"",
+        ETHpercentage:""
+
+      }
+    },
+     mounted () {
+    this.$store.dispatch('loadBitso')
+  },
+     created(){
+    this.$store.dispatch('loadCoin')
+    Axios
+    .get('http://localhost:4000/all/balance')
+    .then((response) => {
+      console.log()
+      this.saldo = response.data[2].balance
+    }
+
+    )
+    .catch()
+
+     },
+  computed: mapState([
+    'coins',
+    'coins2'
+  ])
+  }
+
+  
+</script>
+
+<style >
+.saldoNum{
+  color: black;
+}
+</style>
+var newPercentage = this.MxnBtc/100*this.totalMXN 
+    this.BTCpercentage = newPercentage
